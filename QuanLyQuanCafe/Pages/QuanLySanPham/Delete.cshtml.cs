@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using QuanLyQuanCafe.Data;
 using QuanLyQuanCafe.Models;
 
-namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
+namespace QuanLyQuanCafe.Pages.QuanLySanPham
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
         }
 
         [BindProperty]
-        public NhanVien NhanVien { get; set; } = default!;
+        public SanPham SanPham { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,15 +29,15 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
                 return NotFound();
             }
 
-            var nhanvien = await _context.NhanVien.FirstOrDefaultAsync(m => m.MaNhanVien == id);
+            var sanpham = await _context.SanPham.FirstOrDefaultAsync(m => m.MaSanPham == id);
 
-            if (nhanvien == null)
+            if (sanpham == null)
             {
                 return NotFound();
             }
             else
             {
-                NhanVien = nhanvien;
+                SanPham = sanpham;
             }
             return Page();
         }
@@ -49,11 +49,11 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
                 return NotFound();
             }
 
-            var nhanvien = await _context.NhanVien.FindAsync(id);
-            if (nhanvien != null)
+            var sanpham = await _context.SanPham.FindAsync(id);
+            if (sanpham != null)
             {
-                NhanVien = nhanvien;
-                _context.NhanVien.Remove(NhanVien);
+                SanPham = sanpham;
+                _context.SanPham.Remove(SanPham);
                 await _context.SaveChangesAsync();
             }
 

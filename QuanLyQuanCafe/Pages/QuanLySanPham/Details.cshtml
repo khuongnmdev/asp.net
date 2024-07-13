@@ -1,0 +1,43 @@
+﻿@page
+@model QuanLyQuanCafe.Pages.QuanLySanPham.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.TenKhachHang)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.TenKhachHang)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Gia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Gia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Loai)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Loai)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.DonViTinh)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.DonViTinh)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SanPham.MaSanPham">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -30,7 +30,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyKhachHang
                 return NotFound();
             }
 
-            var khachhang =  await _context.KhachHang.FirstOrDefaultAsync(m => m.ID == id);
+            var khachhang =  await _context.KhachHang.FirstOrDefaultAsync(m => m.MaKhachHang == id);
             if (khachhang == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyKhachHang
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!KhachHangExists(KhachHang.ID))
+                if (!KhachHangExists(KhachHang.MaKhachHang))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyKhachHang
 
         private bool KhachHangExists(int id)
         {
-            return _context.KhachHang.Any(e => e.ID == id);
+            return _context.KhachHang.Any(e => e.MaKhachHang == id);
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using QuanLyQuanCafe.Data;
 using QuanLyQuanCafe.Models;
 
-namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
+namespace QuanLyQuanCafe.Pages.QuanLySanPham
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
         }
 
         [BindProperty]
-        public NhanVien NhanVien { get; set; } = default!;
+        public SanPham SanPham { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,12 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
                 return NotFound();
             }
 
-            var nhanvien =  await _context.NhanVien.FirstOrDefaultAsync(m => m.MaNhanVien == id);
-            if (nhanvien == null)
+            var sanpham =  await _context.SanPham.FirstOrDefaultAsync(m => m.MaSanPham == id);
+            if (sanpham == null)
             {
                 return NotFound();
             }
-            NhanVien = nhanvien;
+            SanPham = sanpham;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
                 return Page();
             }
 
-            _context.Attach(NhanVien).State = EntityState.Modified;
+            _context.Attach(SanPham).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NhanVienExists(NhanVien.MaNhanVien))
+                if (!SanPhamExists(SanPham.MaSanPham))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
             return RedirectToPage("./Index");
         }
 
-        private bool NhanVienExists(int id)
+        private bool SanPhamExists(int id)
         {
-            return _context.NhanVien.Any(e => e.MaNhanVien == id);
+            return _context.SanPham.Any(e => e.MaSanPham == id);
         }
     }
 }

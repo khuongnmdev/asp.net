@@ -28,7 +28,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyKhachHang
                 return NotFound();
             }
 
-            var khachhang = await _context.KhachHang.FirstOrDefaultAsync(m => m.ID == id);
+            var khachhang = await _context.KhachHang.FirstOrDefaultAsync(m => m.MaKhachHang == id);
             if (khachhang == null)
             {
                 return NotFound();

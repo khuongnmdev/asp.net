@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using QuanLyQuanCafe.Data;
 using QuanLyQuanCafe.Models;
 
-namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
+namespace QuanLyQuanCafe.Pages.QuanLySanPham
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
             _context = context;
         }
 
-        public NhanVien NhanVien { get; set; } = default!;
+        public SanPham SanPham { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,14 +28,14 @@ namespace QuanLyQuanCafe.Pages.QuanLyNhanVien
                 return NotFound();
             }
 
-            var nhanvien = await _context.NhanVien.FirstOrDefaultAsync(m => m.MaNhanVien == id);
-            if (nhanvien == null)
+            var sanpham = await _context.SanPham.FirstOrDefaultAsync(m => m.MaSanPham == id);
+            if (sanpham == null)
             {
                 return NotFound();
             }
             else
             {
-                NhanVien = nhanvien;
+                SanPham = sanpham;
             }
             return Page();
         }
