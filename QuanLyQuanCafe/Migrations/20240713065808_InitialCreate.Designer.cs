@@ -12,7 +12,7 @@ using QuanLyQuanCafe.Data;
 namespace QuanLyQuanCafe.Migrations
 {
     [DbContext(typeof(QuanLyQuanCafeContext))]
-    [Migration("20240712183851_InitialCreate")]
+    [Migration("20240713065808_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
