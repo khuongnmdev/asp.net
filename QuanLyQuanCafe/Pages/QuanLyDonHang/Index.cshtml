@@ -1,0 +1,54 @@
+﻿@page
+@model QuanLyQuanCafe.Pages.QuanLyDonHang.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonHang[0].MaKhachHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonHang[0].MaNhanVien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonHang[0].NgayDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonHang[0].TongTien)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DonHang) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNhanVien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MaDonHang">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MaDonHang">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MaDonHang">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@page
+@model QuanLyQuanCafe.Pages.QuanLyDonHang.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DonHang</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DonHang.MaDonHang" />
+            <div class="form-group">
+                <label asp-for="DonHang.MaKhachHang" class="control-label"></label>
+                <input asp-for="DonHang.MaKhachHang" class="form-control" />
+                <span asp-validation-for="DonHang.MaKhachHang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonHang.MaNhanVien" class="control-label"></label>
+                <input asp-for="DonHang.MaNhanVien" class="form-control" />
+                <span asp-validation-for="DonHang.MaNhanVien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonHang.NgayDat" class="control-label"></label>
+                <input asp-for="DonHang.NgayDat" class="form-control" />
+                <span asp-validation-for="DonHang.NgayDat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonHang.TongTien" class="control-label"></label>
+                <input asp-for="DonHang.TongTien" class="form-control" />
+                <span asp-validation-for="DonHang.TongTien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

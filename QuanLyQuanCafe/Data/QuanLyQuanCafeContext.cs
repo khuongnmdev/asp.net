@@ -17,5 +17,6 @@ namespace QuanLyQuanCafe.Data
         public DbSet<QuanLyQuanCafe.Models.KhachHang> KhachHang { get; set; } = default!;
         public DbSet<QuanLyQuanCafe.Models.NhanVien> NhanVien { get; set; } = default!;
         public DbSet<QuanLyQuanCafe.Models.SanPham> SanPham { get; set; } = default!;
+        public DbSet<QuanLyQuanCafe.Models.DonHang> DonHang { get; set; } = default!;
     }
 }
